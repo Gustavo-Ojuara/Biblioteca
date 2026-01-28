@@ -1,0 +1,21 @@
+name: Run Cypress Tests
+
+on: [push]
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run --record --key 3b36066f-cb9a-4a77-869c-ebbed657fc7b
